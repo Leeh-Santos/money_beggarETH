@@ -1,19 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Fund Me App</title>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fund Me App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-  <body>
-    <button id="connectButton">Connect</button>
-    <button id="balanceButton">getBalance</button>
-    <button id="withdrawButton">Withdraw</button>
-    <!-- <form> -->
-    <label for="ethAmount">ETH Amount</label>
-    <input id="ethAmount" placeholder="0.1" />
-    <button type="button" id="fundButton" > Fund </button>
-    <!-- </form> -->
-  </body>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Fund Me App</h1>
+      <p>Secure, transparent, blockchain-powered funding</p>
+    </header>
+
+    <div class="connection-status">
+      <div class="status-indicator">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="connectionStatus">Not connected</span>
+      </div>
+      <button class="btn btn-outline" id="connectButton" style="padding: 6px 12px; font-size: 14px;">Connect Wallet</button>
+    </div>
+
+    <main class="app-content">
+      <div class="balance-section">
+        <div class="balance-title">Contract Balance</div>
+        <div class="balance-amount">
+          <span id="balanceAmount">0.00</span>
+          <span class="currency">ETH</span>
+        </div>
+      </div>
+
+      <div class="action-section">
+        <h2 class="section-title">Fund Contract</h2>
+        <div class="fund-form">
+          <div class="input-group">
+            <label for="ethAmount">Amount to Fund</label>
+            <div class="eth-input-wrapper">
+              <input id="ethAmount" type="number" placeholder="0.1" min="0" step="0.01">
+            </div>
+          </div>
+          <button type="button" id="fundButton" class="btn btn-primary btn-block">Fund Contract</button>
+        </div>
+        <div class="action-message" id="fundMessage"></div>
+      </div>
+
+      <div class="action-section">
+        <h2 class="section-title">Manage Contract</h2>
+        <div class="buttons-group">
+          <button id="balanceButton" class="btn btn-outline">Refresh Balance</button>
+          <button id="withdrawButton" class="btn btn-danger">Withdraw Funds</button>
+        </div>
+        <div class="action-message" id="actionMessage"></div>
+      </div>
+    </main>
+  </div>
 
   <script src="./index.js" type="module"></script>
+  <script>
+    // Basic UI interaction (just for demo)
+    document.getElementById('connectButton').addEventListener('click', function() {
+      const statusDot = document.getElementById('statusDot');
+      const statusText = document.getElementById('connectionStatus');
+      
+      statusDot.classList.add('connected');
+      statusText.innerText = 'Connected to MetaMask';
+      this.innerText = 'Connected';
+      
+      // This is just for UI demo - your actual connection logic is in index.js
+    });
+  </script>
+</body>
 </html>
