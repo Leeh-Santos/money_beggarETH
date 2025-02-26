@@ -13,7 +13,7 @@
       <h1>Fund Me App</h1>
       <p>Secure, transparent, blockchain-powered funding</p>
     </header>
-
+    
     <div class="connection-status">
       <div class="status-indicator">
         <div class="status-dot" id="statusDot"></div>
@@ -21,7 +21,7 @@
       </div>
       <button class="btn btn-outline" id="connectButton" style="padding: 6px 12px; font-size: 14px;">Connect Wallet</button>
     </div>
-
+    
     <main class="app-content">
       <div class="balance-section">
         <div class="balance-title">Contract Balance</div>
@@ -30,7 +30,7 @@
           <span class="currency">ETH</span>
         </div>
       </div>
-
+      
       <div class="action-section">
         <h2 class="section-title">Fund Contract</h2>
         <div class="fund-form">
@@ -40,35 +40,23 @@
               <input id="ethAmount" type="number" placeholder="0.1" min="0" step="0.01">
             </div>
           </div>
-          <button type="button" id="fundButton" class="btn btn-primary btn-block">Fund Contract</button>
+          <button type="button" id="fundButton" class="btn btn-primary btn-block" disabled>Fund Contract</button>
         </div>
         <div class="action-message" id="fundMessage"></div>
       </div>
-
+      
       <div class="action-section">
         <h2 class="section-title">Manage Contract</h2>
         <div class="buttons-group">
-          <button id="balanceButton" class="btn btn-outline">Refresh Balance</button>
-          <button id="withdrawButton" class="btn btn-danger">Withdraw Funds</button>
+          <button id="balanceButton" class="btn btn-outline" disabled>Refresh Balance</button>
+          <button id="withdrawButton" class="btn btn-danger" disabled>Withdraw Funds</button>
         </div>
         <div class="action-message" id="actionMessage"></div>
       </div>
     </main>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
   <script src="./index.js" type="module"></script>
-  <script>
-    // Basic UI interaction (just for demo)
-    document.getElementById('connectButton').addEventListener('click', function() {
-      const statusDot = document.getElementById('statusDot');
-      const statusText = document.getElementById('connectionStatus');
-      
-      statusDot.classList.add('connected');
-      statusText.innerText = 'Connected to MetaMask';
-      this.innerText = 'Connected';
-      
-      // This is just for UI demo - your actual connection logic is in index.js
-    });
-  </script>
 </body>
 </html>
