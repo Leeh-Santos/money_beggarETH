@@ -478,3 +478,11 @@
       gap: 10px;
     }
   }
+
+  #accountDisplay {
+   
+    font-size: 0.85em;
+    color: #666;
+    margin-left: 10px; /* Adjust this value to control the spacing */
+    display: inline-block; /* This keeps it on the same line */
+  }

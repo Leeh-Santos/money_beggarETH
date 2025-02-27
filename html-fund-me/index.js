@@ -9,6 +9,7 @@ const fundMessage = document.getElementById('fundMessage');
 const balanceButton = document.getElementById('balanceButton');
 const withdrawButton = document.getElementById('withdrawButton');
 const actionMessage = document.getElementById('actionMessage');
+const accountDisplay = document.getElementById('accountDisplay'); // Add this line for account display element
 
 // Global variables
 let accounts = [];
@@ -18,6 +19,12 @@ let isConnected = false;
 function checkIfMetaMaskIsInstalled() {
   const { ethereum } = window;
   return Boolean(ethereum && ethereum.isMetaMask);
+}
+
+// Format address for display (show first 6 and last 4 characters)
+function formatAddress(address) {
+  if (!address) return '';
+  return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
 }
 
 // Initialize the app
@@ -91,6 +98,14 @@ function handleAccountsChanged(newAccounts) {
   statusText.innerText = 'Connected to MetaMask';
   connectButton.innerText = 'Connected';
   
+  // Display connected account address
+  const currentAccount = accounts[0];
+  const formattedAccount = formatAddress(currentAccount);
+  if (accountDisplay) {
+    accountDisplay.innerText = `Account: ${formattedAccount}`;
+    accountDisplay.setAttribute('title', currentAccount); // Full address on hover
+  }
+  
   // Enable buttons
   fundButton.disabled = false;
   balanceButton.disabled = false;
@@ -114,6 +129,11 @@ function handleDisconnect() {
   statusText.innerText = 'Not connected';
   connectButton.innerText = 'Connect Wallet';
   balanceAmount.innerText = '0.00';
+  
+  // Clear account display
+  if (accountDisplay) {
+    accountDisplay.innerText = '';
+  }
   
   // Disable buttons
   fundButton.disabled = true;
@@ -302,13 +322,3 @@ if (typeof ethers === 'undefined') {
 } else {
   initApp();
 }
-
-
-
-
-
-
-
-
-
-
