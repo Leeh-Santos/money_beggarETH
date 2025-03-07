@@ -15,7 +15,7 @@
   <div class="app-container">
     <header class="app-header">
       <h1>Fund Me App</h1>
-      <p>Drip me some eth for a juicy surprise, could be an nft, crypto, a raffle for my next project, who knows what I am building next</p>
+      <p>Drip me some ETH for a juicy surprise, could be an nft, crypto, a raffle for my next project, who knows what I am building next</p>
     </header>
     
     <div class="connection-status">
@@ -34,6 +34,10 @@
           <span id="balanceAmount">0.00</span>
           <span class="currency">ETH</span>
         </div>
+        <div class="usd-balance">
+          <span>$</span><span id="usdBalanceAmount">0.00</span>
+          <span class="currency">USD</span>
+        </div>
       </div>
       
       <div class="action-section">
@@ -43,6 +47,7 @@
             <label for="ethAmount">Amount to Fund</label>
             <div class="eth-input-wrapper">
               <input id="ethAmount" type="number" placeholder="0.1" min="0" step="0.01">
+              <div class="usd-conversion" id="ethToUsd">≈ $0.00</div>
             </div>
           </div>
           <button type="button" id="fundButton" class="btn btn-primary btn-block" disabled>Fund Contract</button>

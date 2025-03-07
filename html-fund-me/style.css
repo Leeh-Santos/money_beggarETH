@@ -156,7 +156,6 @@
   }
   
   .eth-input-wrapper::after {
-    content: "ETH";
     position: absolute;
     right: 16px;
     top: 50%;
@@ -486,3 +485,27 @@
     margin-left: 10px; /* Adjust this value to control the spacing */
     display: inline-block; /* This keeps it on the same line */
   }
+
+  .usd-balance {
+  margin-top: 5px;
+  font-size: 16px;
+  color: #718096;
+}
+
+.eth-input-wrapper {
+  position: relative;
+}
+
+.usd-conversion {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #718096;
+}
+
+/* Make input wider to accommodate USD conversion */
+.input-group input {
+  padding-right: 85px;
+}

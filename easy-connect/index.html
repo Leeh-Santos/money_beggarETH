@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple MetaMask Example</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        button { padding: 10px; margin: 5px 0; }
+        #status { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Simple MetaMask Example</h1>
+    
+    <button id="connectButton">Connect to MetaMask</button>
+    <button id="getBalanceButton" disabled>Get Balance</button>
+    <button id="sendButton" disabled>Send 0.001 ETH</button>
+    
+    <div id="status">Not connected</div>
+    
+    <script src="metamask-connector.js"></script>
+    <script>
+        let currentAccount = null;
+        
+        // Connect button
+        document.getElementById('connectButton').addEventListener('click', async () => {
+            const account = await connectMetaMask();
+            if (account) {
+                currentAccount = account;
+                document.getElementById('status').textContent = `Connected: ${account}`;
+                document.getElementById('getBalanceButton').disabled = false;
+                document.getElementById('sendButton').disabled = false;
+            }
+        });
+        
+        // Get balance button
+        document.getElementById('getBalanceButton').addEventListener('click', async () => {
+            if (currentAccount) {
+                const balance = await getAccountBalance(currentAccount);
+                if (balance !== null) {
+                    document.getElementById('status').textContent = 
+                        `Account: ${currentAccount}\nBalance: ${balance.toFixed(4)} ETH`;
+                }
+            }
+        });
+        
+        // Send transaction button
+        document.getElementById('sendButton').addEventListener('click', async () => {
+            if (currentAccount) {
+                // Replace with a valid Ethereum address
+                const toAddress = '0x7F4642c34b2476ff3aD518a183D4D5ab35d4261c';
+                const amount = 0.01; // 0.001 ETH
+                
+                document.getElementById('status').textContent = 'Sending transaction...';
+                const txHash = await sendTransaction(toAddress, amount);
+                
+                if (txHash) {
+                    document.getElementById('status').textContent = 
+                        `Transaction sent!\nTx Hash: ${txHash}`;
+                } else {
+                    document.getElementById('status').textContent = 'Transaction failed';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
