@@ -317,7 +317,7 @@
   
   /* Adjust app container for transparency */
   .app-container {
-    background-color: rgba(255, 255, 255, 0.55);
+    background-color: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     transition: box-shadow 0.3s ease;
