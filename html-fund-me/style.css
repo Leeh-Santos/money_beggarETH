@@ -112,6 +112,7 @@
   
   .action-section {
     margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
   }
   
   .section-title {
@@ -316,7 +317,7 @@
   
   /* Adjust app container for transparency */
   .app-container {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     transition: box-shadow 0.3s ease;
@@ -402,7 +403,7 @@
   
   /* Add transparency to the contract interaction sections */
   .app-content {
-    background-color: rgba(255, 255, 255, 0.85); /* White with 85% opacity */
+    background-color: rgba(255, 255, 255, 0.0); /* White with 85% opacity */
     backdrop-filter: blur(4px); /* Adds a slight blur effect behind the content */
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -425,7 +426,7 @@
   
   /* Balance section styling with transparency */
   .balance-section {
-    background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+    background-color: rgba(255, 255, 255, 0.05); /* White with 70% opacity */
     border-radius: 6px;
     padding: 16px;
     margin-bottom: 16px;
